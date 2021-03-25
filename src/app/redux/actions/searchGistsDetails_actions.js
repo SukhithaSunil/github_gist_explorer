@@ -42,17 +42,7 @@ async function getGistsDetails(userName) {
     .then((data) => {
       gistDetails = JSON.parse(JSON.stringify(data));
       console.log(gistDetails);
-      //   filteredData = gistDetails.map((item) => {
-      //     var repo = {
-      //       name: item.name,
-      //       url: item.html_url,
-      //       id: item.id,
-      //       avatar: item.owner.avatar_url,
-      //       owner: item.owner.login,
-      //       description: item.description,
-      //     };
-      //     return repo;
-      //   });
+      
     });
 
   return gistDetails;

@@ -14,13 +14,19 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     marginRight: theme.spacing(2),
   },
-}));
+  heroButtons: {
+    margin: theme.spacing(5,5,5,5),
+  },
+  heroContent: {
+    // backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(5, 0, 6),
+  },
+}))
 
 export const DashBoard = (props) => {
   const classes = useStyles();
   return (
     <div>
-      {' '}
       <CssBaseline />
       <AppBar position='relative'>
         <Toolbar>
@@ -30,16 +36,7 @@ export const DashBoard = (props) => {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Container>
-        {/* <Typography
-          component='h1'
-          variant='h2'
-          align='center'
-          color='textPrimary'
-          gutterBottom
-        >
-          Album layout
-        </Typography> */}
+      <Container className={classes.heroContent} >
         <Typography variant='h5' align='center' color='textSecondary' paragraph>
           Discover code, notes, and snippets.
         </Typography>
@@ -48,7 +45,7 @@ export const DashBoard = (props) => {
         </div>
       </Container>
     </div>
-  );
+  )
 };
 
 const mapStateToProps = (state) => ({});

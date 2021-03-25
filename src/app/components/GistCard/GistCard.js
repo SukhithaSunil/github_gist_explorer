@@ -5,8 +5,10 @@ import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card';
 import Paper from '@material-ui/core/Paper'
-
+import { Link } from 'react-router-dom';
 import CardActions from '@material-ui/core/CardActions'
+import CardHeader from '@material-ui/core/CardHeader'
+
 import CardActionArea from '@material-ui/core/CardActionArea'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
@@ -35,7 +37,16 @@ const useStyles = makeStyles({
 })
 export const GistCard = ({ gistList }) => {
    
+
 const classes = useStyles();
+const colors = {
+  Markdown: 'burlywood',
+  JavaScript: 'cadetblue',
+  Text: 'teal',
+  SVG: 'darkgoldenrod',
+  CSS: 'darkcyan',
+  HTML: 'cornflowerblue',
+}
   const gistContent = (gist) => {
     const fileName = Object.keys(gist.files)[0]
     const fileDetails = gist.files[fileName]
@@ -46,32 +57,40 @@ const classes = useStyles();
     <React.Fragment>
       {gistList &&
         gistList.map((gist, index) => (
-          <Grid item xs={12} md={6} lg={4} style={{ height: '20%' }}>
+          <Grid item xs={12} md={4} lg={4} style={{ height: '20%' }}>
             <Paper className={classes.paper} variant='outlined' elevation={3}>
               <Card className={classes.root}>
-                <CardContent style={{paddingBottom:"10px"}}>
-                  <Typography
-                    className={classes.title}
-                    color='textSecondary'
-                    gutterBottom
-                  >
-                    {gist.owner.login}
-                  </Typography>
-                  <Typography variant='h5' component='h2'>
-                    {Object.keys(gist.files)[0]}
-                  </Typography>
+                <CardHeader
+                  avatar={
+                    <Avatar
+                      aria-label={gist.owner.login}
+                      src={gist.owner.avatar_url}
+                    />
+                  }
+                  title={gist.owner.login}
+                  subheader={Object.keys(gist.files)[0]}
+                />
+                <CardContent style={{ paddingBottom: '10px' }}>
                   <Typography className={classes.pos} color='textSecondary'>
                     {`Created ${moment.utc(gist.created_at).fromNow()}`}
                   </Typography>
-                  <Typography variant='body2' component='p'>
+                  <Typography
+                    variant='body2'
+                    component='h5'
+                    style={{
+                      whiteSpace: 'nowrap',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                    }}
+                  >
                     {gist.description || 'No Description'}
-                    <Chip
-                      className={classes.type}
-                      size='small'
-                      label={gistContent(gist).language}
-                      color='primary'
-                    />
                   </Typography>{' '}
+                  <Chip
+                    className={classes.type}
+                    size='small'
+                    label={gistContent(gist).language}
+                    color='secondary'
+                  />
                 </CardContent>
 
                 <CardActions style={{ justifyContent: 'centre' }}>
@@ -83,7 +102,16 @@ const classes = useStyles();
                   <Typography variant='body2' component='p'>
                     {`${gist.comments} comments`}
                   </Typography>
-                  <Button size='small' color='primary'>{"Learn More"}</Button>
+                  <Link
+                    to={{
+                      pathname: `/${gist.id}`,
+                    }}
+                  >
+                    <Typography variant='body2' component='p'>
+                      {'Learn More'}
+                    </Typography>
+                    {/* <Button size='small' color='primary'></Button> */}
+                  </Link>
                 </CardActions>
               </Card>
             </Paper>

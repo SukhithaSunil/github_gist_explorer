@@ -4,7 +4,6 @@ const initialState = {
   gists: null,
   loading: false,
   error: null,
-  selectedGist: {},
 };
 
 export default function searchGistsDetails_reducer(
@@ -13,7 +12,7 @@ export default function searchGistsDetails_reducer(
 ) {
   switch (action.type) {
     case actions.FETCH_GISTS_REQUEST:
-      return { ...state, loading: true };
+      return { ...state, gists: [], loading: true, error: null }
     case actions.FETCH_GISTS_SUCCESS:
       return {
         ...state,
@@ -22,11 +21,7 @@ export default function searchGistsDetails_reducer(
         error: null,
       };
     case actions.FETCH_GISTS_FAILURE:
-      return { ...state, error: action.error, loading: false };
-    case actions.SELECT_GISTS:
-      return { ...state, selectedGist: action.gist };
-    case actions.UNSELECT_GISTS:
-      return { ...state, selectedGist: {} };
+      return { ...state,gists:null, error: action.error, loading: false };
 
     default:
       return state;

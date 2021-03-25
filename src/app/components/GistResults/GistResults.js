@@ -21,14 +21,27 @@ export const GistResults = ({ gistList, error, loading }) => {
     <div>
       {gistList?.length == 0 && <h2>We couldn’t find any gists for user </h2>}
       {error && <h2>{error} </h2>}
-      {loading && (
-        <div>
-          <Skeleton animation='wave' height={10} width={210} />
-          <Skeleton animation='wave' variant='circle' width={40} height={40} />
-          <Skeleton animation='wave' height={10} width={210} />
-          <Skeleton animation='wave' variant='rect' width={210} height={118} />
-        </div>
-      )}
+      {loading &&
+        [1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
+          <Grid container spacing={3}>
+            <Grid item md={12}>
+              <Skeleton animation='wave' height={10} width={210} />
+              <Skeleton
+                animation='wave'
+                variant='circle'
+                width={40}
+                height={40}
+              />
+              <Skeleton animation='wave' height={10} width={210} />
+              <Skeleton
+                animation='wave'
+                variant='rect'
+                width={210}
+                height={118}
+              />
+            </Grid>
+          </Grid>
+        ))}
       {gistList?.length > 0 && (
         <Grid container spacing={3}>
           <GistCard />
