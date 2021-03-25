@@ -1,10 +1,9 @@
+import Grid from '@material-ui/core/Grid'
+import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 import { connect } from 'react-redux'
-import SearchDist from '../../components/SearchDist/SearchDist'
 import GistResults from '../../components/GistResults/GistResults'
-import { makeStyles } from '@material-ui/core/styles'
-import Grid from '@material-ui/core/Grid'
-import Container from '@material-ui/core/Container'
+import SearchDist from '../../components/SearchDist/SearchDist'
 const useStyles = makeStyles((theme) => ({
   heroContent: {
     // backgroundColor: theme.palette.background.paper,

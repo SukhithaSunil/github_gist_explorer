@@ -1,7 +1,7 @@
-import React from 'react'
 import Avatar from '@material-ui/core/Avatar'
-import Typography from '@material-ui/core/Typography'
 import Chip from '@material-ui/core/Chip'
+import Typography from '@material-ui/core/Typography'
+import React from 'react'
 
 function Fork({ forks }) {
   return (

@@ -1,25 +1,18 @@
-import React ,{useState}from 'react'
-import { connect } from 'react-redux'
+import Avatar from '@material-ui/core/Avatar'
+import Card from '@material-ui/core/Card'
+import CardActions from '@material-ui/core/CardActions'
+import CardContent from '@material-ui/core/CardContent'
+import CardHeader from '@material-ui/core/CardHeader'
+import Grid from '@material-ui/core/Grid'
+import Paper from '@material-ui/core/Paper'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
-import Grid from '@material-ui/core/Grid'
-import Card from '@material-ui/core/Card';
-import Paper from '@material-ui/core/Paper'
-import { Link } from 'react-router-dom';
-import CardActions from '@material-ui/core/CardActions'
-import CardHeader from '@material-ui/core/CardHeader'
-import CardActionArea from '@material-ui/core/CardActionArea'
-import CardContent from '@material-ui/core/CardContent'
-import CardMedia from '@material-ui/core/CardMedia'
-import Hidden from '@material-ui/core/Hidden'
-import Gist from 'react-gist';
-import moment from  'moment';
-import IconButton from '@material-ui/core/IconButton';
-import Avatar from '@material-ui/core/Avatar'
-import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
-import AssignmentIcon from '@material-ui/icons/Assignment';
-import CommentIcon from '@material-ui/icons/Comment';
-import Button from '@material-ui/core/Button';
+import AssignmentIcon from '@material-ui/icons/Assignment'
+import CommentIcon from '@material-ui/icons/Comment'
+import moment from 'moment'
+import React from 'react'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import Badge from '../UI/Badge/Badge'
 
 const useStyles = makeStyles({
@@ -32,26 +25,23 @@ const useStyles = makeStyles({
   type: {
     marginTop: 6,
   },
-  
 })
 export const GistCard = ({ gistList }) => {
-   
-
-const classes = useStyles();
-const colors = {
-  Markdown: 'burlywood',
-  JavaScript: 'cadetblue',
-  Text: 'teal',
-  SVG: 'darkgoldenrod',
-  CSS: 'darkcyan',
-  HTML: 'cornflowerblue',
-}
+  const classes = useStyles()
+  const colors = {
+    Markdown: 'burlywood',
+    JavaScript: 'cadetblue',
+    Text: 'teal',
+    SVG: 'darkgoldenrod',
+    CSS: 'darkcyan',
+    HTML: 'cornflowerblue',
+  }
   const gistContent = (gist) => {
-    const languages =[];
-     Object.keys(gist.files).map((fileName) => {
-       languages.push(gist.files[fileName].language);
-     })
-    
+    const languages = []
+    Object.keys(gist.files).map((fileName) => {
+      languages.push(gist.files[fileName].language)
+    })
+
     return languages
   }
   return (
@@ -121,6 +111,5 @@ const colors = {
 
 const mapStateToProps = (state) => ({ gistList: state.gistsDetails.gists })
 
-const mapDispatchToProps = {}
 
-export default connect(mapStateToProps, mapDispatchToProps)(GistCard)
+export default connect(mapStateToProps, {})(GistCard)

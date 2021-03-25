@@ -1,12 +1,10 @@
+import Box from '@material-ui/core/Box'
+import Grid from '@material-ui/core/Grid'
+import { makeStyles } from '@material-ui/core/styles'
+import Skeleton from '@material-ui/lab/Skeleton'
 import React from 'react'
 import { connect } from 'react-redux'
-import Container from '@material-ui/core/Container'
-import Skeleton from '@material-ui/lab/Skeleton'
-import Grid from '@material-ui/core/Grid'
 import GistCard from '../GistCard/GistCard'
-import { makeStyles } from '@material-ui/core/styles'
-import Box from '@material-ui/core/Box'
-import Typography from '@material-ui/core/Typography'
 export const GistResults = ({ gistList, error, loading, userName }) => {
   const useStyles = makeStyles((theme) => ({
     root: {

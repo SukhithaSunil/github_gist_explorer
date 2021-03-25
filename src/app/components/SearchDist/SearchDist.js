@@ -1,11 +1,10 @@
+import { makeStyles } from '@material-ui/core/styles'
+import SearchBar from 'material-ui-search-bar'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import SearchBar from 'material-ui-search-bar'
 import {
-  fetchGists,
-  clearGists,
+  clearGists, fetchGists
 } from '../../redux/actions/searchGistsDetails_actions'
-import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {

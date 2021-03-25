@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
 import Chip from '@material-ui/core/Chip'
 import { makeStyles } from '@material-ui/core/styles'
+import React from 'react'
 
 const useStyles = makeStyles({
   languageChip: {
