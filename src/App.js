@@ -23,7 +23,7 @@ function App() {
     <Router>
       <div>
         <Route path='/' exact={true} component={DashBoard} />
-        <Route path='/:id' component={GistDetails} />
+        <Route path='/:userName/:id' component={GistDetails} />
       </div>
     </Router>
     </ThemeProvider>

@@ -11,16 +11,15 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0, 0, 5),
   },
 }))
-// We couldn’t find any gists matching 'sukhitha'
 export const DiscoverGist = (props) => {
   const classes = useStyles()
 
   return (
     <Grid container justify='center' alignItems='center'>
-      <Grid item className={classes.heroContent} item xs={10} md={8} lg={8}>
+      <Grid item className={classes.heroContent} item xs={10} sm={10} md={8} lg={8}>
         <SearchDist />
       </Grid>
-      <Grid item item xs={12} md={12} lg={2}>
+      <Grid item item xs={12} sm={12} md={12} lg={12}>
         <GistResults style={{ height: '100%!important' }} />
       </Grid>
     </Grid>

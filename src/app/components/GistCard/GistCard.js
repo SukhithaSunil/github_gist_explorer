@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{useState}from 'react'
 import { connect } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
@@ -8,7 +8,6 @@ import Paper from '@material-ui/core/Paper'
 import { Link } from 'react-router-dom';
 import CardActions from '@material-ui/core/CardActions'
 import CardHeader from '@material-ui/core/CardHeader'
-
 import CardActionArea from '@material-ui/core/CardActionArea'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
@@ -17,11 +16,11 @@ import Gist from 'react-gist';
 import moment from  'moment';
 import IconButton from '@material-ui/core/IconButton';
 import Avatar from '@material-ui/core/Avatar'
-import Chip from '@material-ui/core/Chip'
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import CommentIcon from '@material-ui/icons/Comment';
 import Button from '@material-ui/core/Button';
+import Badge from '../UI/Badge/Badge'
 
 const useStyles = makeStyles({
   root: {
@@ -31,7 +30,7 @@ const useStyles = makeStyles({
     fontSize: 14,
   },
   type: {
-    marginLeft: 6,
+    marginTop: 6,
   },
   
 })
@@ -48,16 +47,18 @@ const colors = {
   HTML: 'cornflowerblue',
 }
   const gistContent = (gist) => {
-    const fileName = Object.keys(gist.files)[0]
-    const fileDetails = gist.files[fileName]
-    console.log(fileDetails)
-    return fileDetails;
+    const languages =[];
+     Object.keys(gist.files).map((fileName) => {
+       languages.push(gist.files[fileName].language);
+     })
+    
+    return languages
   }
   return (
     <React.Fragment>
       {gistList &&
         gistList.map((gist, index) => (
-          <Grid item xs={12} md={4} lg={4} style={{ height: '20%' }}>
+          <Grid item xs={12} sm={6} md={4} lg={4} key={index}>
             <Paper className={classes.paper} variant='outlined' elevation={3}>
               <Card className={classes.root}>
                 <CardHeader
@@ -85,12 +86,7 @@ const colors = {
                   >
                     {gist.description || 'No Description'}
                   </Typography>{' '}
-                  <Chip
-                    className={classes.type}
-                    size='small'
-                    label={gistContent(gist).language}
-                    color='secondary'
-                  />
+                  <Badge files={gist.files} />
                 </CardContent>
 
                 <CardActions style={{ justifyContent: 'centre' }}>
@@ -102,9 +98,11 @@ const colors = {
                   <Typography variant='body2' component='p'>
                     {`${gist.comments} comments`}
                   </Typography>
+
                   <Link
+                    style={{ color: 'darksalmon' }}
                     to={{
-                      pathname: `/${gist.id}`,
+                      pathname: `/${gist.owner.login}/${gist.id}`,
                     }}
                   >
                     <Typography variant='body2' component='p'>

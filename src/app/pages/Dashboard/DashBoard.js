@@ -28,7 +28,7 @@ export const DashBoard = (props) => {
   return (
     <div>
       <CssBaseline />
-      <AppBar position='relative'>
+      <AppBar  position='sticky'>
         <Toolbar>
           <GitHubIcon className={classes.icon} />
           <Typography variant='h6' color='inherit' noWrap>
@@ -36,7 +36,7 @@ export const DashBoard = (props) => {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Container className={classes.heroContent} >
+      <Container className={classes.heroContent}>
         <Typography variant='h5' align='center' color='textSecondary' paragraph>
           Discover code, notes, and snippets.
         </Typography>
