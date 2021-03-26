@@ -19,8 +19,8 @@ const Badge = ({ files }) => {
   return (
     <React.Fragment>
       {languages &&
-        languages?.map((language) => (
-          <Chip
+        languages?.map((language,index) => (
+          <Chip key={index}
             className={classes.languageChip}
             size='small'
             label={language}

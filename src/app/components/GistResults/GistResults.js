@@ -24,8 +24,8 @@ export const GistResults = ({ gistList, error, loading, userName }) => {
       )}
       {error && <h2>{error} </h2>}
       {loading &&
-        [1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
-          <Grid container spacing={3}>
+        [1, 2, 3, 4, 5, 6, 7, 8, 9].map((item,index) => (
+          <Grid container spacing={3} key={index}>
             {loading &&
               Array.from(new Array(3)).map((item, index) => (
                 <Box key={index} width={210} marginRight={0.5} my={5}>

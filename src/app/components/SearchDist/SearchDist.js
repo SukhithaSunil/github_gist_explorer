@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 export const SearchDist = (props) => {
-  const [userName, setUserName] = useState("");
+  const [userName, setUserName] = useState(props.userName);
   const searchGists = () => {
     if (userName !== '') props.fetchGists(userName)
   }
@@ -23,7 +23,7 @@ export const SearchDist = (props) => {
   return (
     <SearchBar
       placeholder={'Search by user id'}
-      value={userName || props.userName}
+      value={userName }
       onChange={(name) => setUserName(name)}
       onRequestSearch={searchGists}
       onCancelSearch={clearGists}

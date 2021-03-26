@@ -49,8 +49,8 @@ export const GistCard = ({ gistList }) => {
       {gistList &&
         gistList.map((gist, index) => (
           <Grid item xs={12} sm={6} md={4} lg={4} key={index}>
-            <Paper className={classes.paper} variant='outlined' elevation={3}>
-              <Card className={classes.root}>
+            <Paper  variant='outlined' elevation={3}>
+              <Card >
                 <CardHeader
                   avatar={
                     <Avatar
