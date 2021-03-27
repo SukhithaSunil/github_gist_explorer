@@ -16,7 +16,7 @@ export default function searchGistsDetails_reducer(
       return {
         ...state,
         userName: '',
-        gists: [],
+        gists: null,
         loading: true,
         error: null,
       }

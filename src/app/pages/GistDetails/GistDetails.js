@@ -1,31 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { connect } from 'react-redux'
-import Container from '@material-ui/core/Container'
-import Typography from '@material-ui/core/Typography'
-import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
+import React, { useEffect, useState } from 'react'
 import ReactEmbedGist from 'react-embed-gist'
-import { makeStyles } from '@material-ui/core/styles'
-import { SvgIcon } from '@material-ui/core'
-import IconButton from '@material-ui/core/IconButton'
-import Fork from '../../components/UI/Fork/Fork'
-
+import { connect } from 'react-redux'
+import Fork from '../../components/Fork/Fork'
 import { fetchGistById } from '../../redux/actions/singleGist_actions'
 
-const useStyles = makeStyles({
-  hc: {
-    height: '23%!important',
-    fontSize: '45px!important',
-  },
-  root: {
-    margin: '35px!important',
-  },
-})
 export const GistDetails = ({ match, fetchGistById, gist, error, loading }) => {
-  const classes = useStyles()
 
   const [gistId, setGistId] = useState(null)
-  const [forks, setForks] = useState(gist?.forks.slice(0, 3))
 
   useEffect(() => {
     setGistId(`${match.params.userName}/${match.params.id}`)

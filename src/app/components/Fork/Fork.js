@@ -1,24 +1,13 @@
-import Avatar from '@material-ui/core/Avatar'
-import Chip from '@material-ui/core/Chip'
-import Typography from '@material-ui/core/Typography'
 import React from 'react'
+import Avatar from '@material-ui/core/Avatar'
+import Typography from '@material-ui/core/Typography'
 import Skeleton from '@material-ui/lab/Skeleton'
-
-
-function Fork({ forks , error,loading}) {
+import { ForkDetailsDiv, ForkBadge } from './Fork.styled'
+function Fork({ forks, error, loading }) {
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: '20px',
-        borderRadius: '20px',
-        backgroundColor: 'black',
-      }}
-    >
+    <ForkDetailsDiv>
       {loading &&
-        Array.from(new Array(3)).map(( index) => (
+        Array.from(new Array(3)).map((index) => (
           <React.Fragment key={index}>
             <Skeleton
               animation='wave'
@@ -32,8 +21,7 @@ function Fork({ forks , error,loading}) {
 
       {forks?.length > 0 && (
         <React.Fragment>
-          <Chip
-            style={{ marginRight: '10px' }}
+          <ForkBadge
             size='small'
             avatar={<Avatar>F</Avatar>}
             label={`Forks`}
@@ -47,7 +35,7 @@ function Fork({ forks , error,loading}) {
                 target='_blank'
                 style={{ paddingRight: '10px' }}
               >
-                <Typography color='textSecondary'>{fork.user.login}</Typography>
+                <Typography color='textPrimary'>{fork.user.login}</Typography>
               </a>
             </React.Fragment>
           ))}
@@ -57,7 +45,7 @@ function Fork({ forks , error,loading}) {
       {forks?.length == 0 && (
         <Typography color='textSecondary'>{'No forks'}</Typography>
       )}
-    </div>
+    </ForkDetailsDiv>
   )
 }
 

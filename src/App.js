@@ -4,7 +4,8 @@ import DashBoard from '../src/app/pages/Dashboard/DashBoard';
 import GistDetails from '../src/app/pages/GistDetails/GistDetails';
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
-import CssBaseline from '@material-ui/core/CssBaseline'
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TopBar from '../src/app/components/TopBar/TopBar';
 
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
@@ -18,14 +19,15 @@ function App() {
    },
  })
   return (
-     <ThemeProvider theme={theme}>
-      <CssBaseline/>
-    <Router>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
       <div>
-        <Route path='/' exact={true} component={DashBoard} />
-        <Route path='/:userName/:id' component={GistDetails} />
+        <TopBar/>
+        <Router>
+          <Route path='/' exact={true} component={DashBoard} />
+          <Route path='/:userName/:id' component={GistDetails} />
+        </Router>
       </div>
-    </Router>
     </ThemeProvider>
   )
 }

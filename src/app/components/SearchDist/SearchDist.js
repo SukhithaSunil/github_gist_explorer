@@ -1,4 +1,3 @@
-import { makeStyles } from '@material-ui/core/styles'
 import SearchBar from 'material-ui-search-bar'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
@@ -6,11 +5,6 @@ import {
   clearGists, fetchGists
 } from '../../redux/actions/searchGistsDetails_actions'
 
-const useStyles = makeStyles((theme) => ({
-  heroContent: {
-    padding: theme.spacing(5, 0, 6),
-  },
-}))
 export const SearchDist = (props) => {
   const [userName, setUserName] = useState(props.userName);
   const searchGists = () => {

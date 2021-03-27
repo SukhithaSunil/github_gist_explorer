@@ -7,14 +7,10 @@ React Single Page Application allow its users to enter a username and get the fu
 2. Filetype: Convert the filetypes of the files in the gist into a tag/badge, (e.g, if the returned gist has list of files containing python and javascript files, the gist should have the respective tags/badges).
 3. Fork: Username/Avatar of the last 3 users who forked it with avatar linking to the fork.
 
-## Stack
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Getting Started and Installing
+## Getting Started and Installing
 
 1. First Git clone the repo into your computer
-   git clone https://https://github.com/SukhithaSunil/github_gist_explorer
+   git clone https://github.com/SukhithaSunil/github_gist_explorer
 2. Open your terminal
 3. $ cd github_gist_explorer
 4. $ npm install
@@ -28,6 +24,6 @@ These instructions will get you a copy of the project up and running on your loc
     This should open up the Demo App
 
 
-### Acknowledgments
-* Hat tip to anyone whose code was used
+<!-- ### Acknowledgments
+* Hat tip to anyone whose code was used -->
 
