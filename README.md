@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+
 # GitHub Gist Explorer
 
 React Single Page Application allow its users to enter a username and get the full list of public Gists for that user, which demostarte the following.
