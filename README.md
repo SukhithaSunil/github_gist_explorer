@@ -24,6 +24,6 @@ React Single Page Application allow its users to enter a username and get the fu
     This should open up the Demo App
 
 
-<!-- ### Acknowledgments
-* Hat tip to anyone whose code was used -->
+ ### Demo
+ https://sukhithasunil.github.io/github_gist_explorer/
 
