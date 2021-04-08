@@ -32,7 +32,7 @@ export const GistResults = ({ gistList, error, loading, userName }) => {
         ))}
 
       {gistList?.length > 0 && (
-        <Grid container spacing={1}>
+        <Grid container spacing={3}>
           <GistCard />
         </Grid>
       )}
